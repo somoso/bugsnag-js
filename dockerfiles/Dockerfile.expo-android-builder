@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-buster
+FROM 855461928731.dkr.ecr.us-west-1.amazonaws.com/js:android-builder-base
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
