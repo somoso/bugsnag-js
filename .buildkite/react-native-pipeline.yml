@@ -244,7 +244,7 @@ steps:
     concurrency_group: 'browserstack-app'
     concurrency_method: eager
 
-  - label: ':ios: RN 0.60 iOS 12 end-to-end tests'
+  - label: ':ios: RN 0.60 iOS 14 end-to-end tests'
     depends_on: "rn-0-60-ipa"
     timeout_in_minutes: 60
     plugins:
@@ -258,9 +258,9 @@ steps:
         command:
         - --app=build/rn0.60.ipa
         - --farm=bs
-        - --device=IOS_12
+        - --device=IOS_14
         - --a11y-locator
-        - --appium-version=1.18.0
+        - --appium-version=1.21.0
         - --fail-fast
         - --resilient
     env:
@@ -317,7 +317,7 @@ steps:
     concurrency_group: 'browserstack-app'
     concurrency_method: eager
 
-  - label: ':ios: RN 0.63 iOS 12 end-to-end tests'
+  - label: ':ios: RN 0.63 iOS 14 end-to-end tests'
     depends_on: "rn-0-63-ipa"
     timeout_in_minutes: 60
     plugins:
@@ -331,9 +331,9 @@ steps:
         command:
         - --app=build/rn0.63.ipa
         - --farm=bs
-        - --device=IOS_12
+        - --device=IOS_14
         - --a11y-locator
-        - --appium-version=1.18.0
+        - --appium-version=1.21.0
         - --fail-fast
         - --resilient
     env:
@@ -358,7 +358,7 @@ steps:
           - --farm=bs
           - --device=IOS_14
           - --a11y-locator
-          - --appium-version=1.18.0
+          - --appium-version=1.21.0
           - --fail-fast
           - --resilient
     env:
@@ -391,7 +391,7 @@ steps:
     concurrency_method: eager
 
   # See: PLAT-5173
-  - label: ':ios: react-navigation 0.60 iOS 13 end-to-end tests'
+  - label: ':ios: react-navigation 0.60 iOS 14 end-to-end tests'
     skip: "See PLAT-5173"
     depends_on: "react-navigation-0-60-ipa"
     timeout_in_minutes: 60
@@ -406,7 +406,7 @@ steps:
         command:
           - --app=build/r_navigation_0.60.ipa
           - --farm=bs
-          - --device=IOS_12
+          - --device=IOS_14
           - --a11y-locator
           - --appium-version=1.18.0
           - --fail-fast
@@ -440,7 +440,7 @@ steps:
     concurrency_method: eager
 
   # See: PLAT-5173
-  - label: ':ios: react-navigation 0.63 iOS 13 end-to-end tests'
+  - label: ':ios: react-navigation 0.63 iOS 14 end-to-end tests'
     skip: "See PLAT-5173"
     depends_on: "react-navigation-0-63-ipa"
     timeout_in_minutes: 60
@@ -455,9 +455,9 @@ steps:
         command:
           - --app=build/r_navigation_0.63.ipa
           - --farm=bs
-          - --device=IOS_13
+          - --device=IOS_14
           - --a11y-locator
-          - --appium-version=1.18.0
+          - --appium-version=1.21.0
           - --fail-fast
           - --resilient
           - features/navigation.feature
@@ -489,7 +489,7 @@ steps:
     concurrency_method: eager
 
   # See: PLAT-5173
-  - label: ':ios: react-native-navigation 0.60 iOS 13 end-to-end tests'
+  - label: ':ios: react-native-navigation 0.60 iOS 14 end-to-end tests'
     skip: "See PLAT-5173"
     depends_on: "react-native-navigation-0-60-ipa"
     timeout_in_minutes: 60
@@ -504,8 +504,8 @@ steps:
         command:
           - --app=build/r_native_navigation_0.60.ipa
           - --farm=bs
-          - --device=IOS_13
-          - --appium-version=1.18.0
+          - --device=IOS_14
+          - --appium-version=1.21.0
           - --a11y-locator
           - --fail-fast
           - --resilient
@@ -538,7 +538,7 @@ steps:
     concurrency_method: eager
 
   # See: PLAT-5173
-  - label: ':ios: react-native-navigation 0.63 iOS 13 end-to-end tests'
+  - label: ':ios: react-native-navigation 0.63 iOS 14 end-to-end tests'
     skip: "See PLAT-5173"
     depends_on: "react-native-navigation-0-63-ipa"
     timeout_in_minutes: 60
@@ -553,9 +553,9 @@ steps:
         command:
           - --app=build/r_native_navigation_0.63.ipa
           - --farm=bs
-          - --device=IOS_13
+          - --device=IOS_14
           - --a11y-locator
-          - --appium-version=1.18.0
+          - --appium-version=1.21.0
           - --fail-fast
           - --resilient
           - features/navigation.feature
