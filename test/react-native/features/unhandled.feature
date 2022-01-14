@@ -19,7 +19,7 @@ Scenario: Catching an Unhandled promise rejection
   And the exception "message" equals "UnhandledJsPromiseRejectionScenario"
 
 Scenario: Catching an Unhandled Native error
-  When I run "UnhandledNativeErrorScenario" and relaunch the app
+  When I run "UnhandledNativeErrorScenario" and relaunch the crashed app
   And I configure Bugsnag for "UnhandledNativeErrorScenario"
   Then I wait to receive an error
   And the event "exceptions.0.errorClass" equals the platform-dependent string:
@@ -32,7 +32,7 @@ Scenario: Catching an Unhandled Native error
   And the exception "message" equals "UnhandledNativeErrorScenario"
 
 Scenario: Updating severity on an unhandled JS error
-  When I run "UnhandledJsErrorSeverityScenario" and relaunch the app
+  When I run "UnhandledJsErrorSeverityScenario" and relaunch the crashed app
   And I configure Bugsnag for "UnhandledJsErrorSeverityScenario"
   Then I wait to receive an error
   And the exception "errorClass" equals "Error"

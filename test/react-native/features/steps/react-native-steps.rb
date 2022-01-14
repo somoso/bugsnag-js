@@ -1,3 +1,15 @@
+def wait_for_true
+  max_attempts = 300
+  attempts = 0
+  assertion_passed = false
+  until (attempts >= max_attempts) || assertion_passed
+    attempts += 1
+    assertion_passed = yield
+    sleep 0.1
+  end
+  raise 'Assertion not passed in 30s' unless assertion_passed
+end
+
 When('I run {string}') do |event_type|
   command = {
     action: 'run_scenario',
@@ -8,18 +20,41 @@ When('I run {string}') do |event_type|
   step 'I click the element "run_command"'
 end
 
-When('I run {string} and relaunch the app') do |event_type|
+When('I run {string} and relaunch the crashed app') do |event_type|
   steps %Q{
     When I run "#{event_type}"
     And I clear any error dialogue
-    And I relaunch the app
+    And I relaunch the app after a crash
   }
 end
 
-When('I relaunch the app') do
-  # This step should only be used when the app has crashed, but the notifier needs a little
-  # time to write the crash report before being forced to reopen.  From trials, 2s was not enough.
-  sleep(5)
+Then('the app is not running') do
+  wait_for_true do
+    case Maze::Helper.get_current_platform
+    when 'ios'
+      $logger.info Maze.driver.app_state('org.reactjs.native.example.reactnative')
+      Maze.driver.app_state('org.reactjs.native.example.reactnative') == :not_running
+    when 'android'
+      raise 'TODO!'
+    end
+  end
+end
+
+# TODO From Unreal
+# Then('the app is not running') do
+#   wait_for_true do
+#     state = app_state()
+#     # workaround for faulty app state detection in appium v1.23 and lower on
+#     # Android where an app that is not running is detected to be running in
+#     # the background
+#     state == :not_running || (state == :running_in_background && is_platform?('Android'))
+#   end
+# end
+
+
+When('I relaunch the app after a crash') do
+  # Wait for the app to stop running before relaunching
+  step 'the app is not running'
   Maze.driver.launch_app
 end
 
