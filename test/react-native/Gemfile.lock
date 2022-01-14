@@ -1,9 +1,7 @@
-GIT
-  remote: https://github.com/bugsnag/maze-runner
-  revision: 4979ecccf0b3f21fa4f9cb439191081993ae5704
-  tag: v6.9.0
+PATH
+  remote: ../../../maze-runner
   specs:
-    bugsnag-maze-runner (6.9.0)
+    bugsnag-maze-runner (6.9.1)
       appium_lib (~> 11.2.0)
       bugsnag (~> 6.24)
       cucumber (~> 7.1)
@@ -141,7 +139,7 @@ GEM
     nanaimo (0.3.0)
     nap (1.1.0)
     netrc (0.11.0)
-    nokogiri (1.13.0)
+    nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     optimist (3.0.1)
