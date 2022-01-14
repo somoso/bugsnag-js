@@ -36,7 +36,19 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
 
+        mavenCentral()
         google()
+
+        if (System.getenv('BUGSNAG_ARTIFACTORY_USER') && System.getenv('BUGSNAG_ARTIFACTORY_PW')) {
+          maven {
+            url('https://bugsnag.jfrog.io/artifactory/platforms-maven')
+            credentials {
+              username System.getenv('BUGSNAG_ARTIFACTORY_USER')
+              password System.getenv('BUGSNAG_ARTIFACTORY_PW')
+            }
+          }
+        }
+  
         jcenter()
         maven { url 'https://www.jitpack.io' }
     }
