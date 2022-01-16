@@ -2,7 +2,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
         maven { // add this to use snapshots
             url "https://oss.sonatype.org/content/repositories/snapshots/"
         }
@@ -70,7 +69,6 @@ allprojects {
     repositories {
         maven { url facebookRepo }
         maven { url bugsnagRepo }
-        jcenter()
         google()
     }
 }
